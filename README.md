@@ -5,3 +5,9 @@
 
 - Gayo Williams - 091921
 - Rashid Salim - 114161
+
+
+
+![Multiplication](Screenshots\multiplication.png)
+
+![Result](Screenshots\result.png)
