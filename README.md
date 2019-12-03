@@ -8,7 +8,7 @@
 
 
 ### Simple Multiplication
-![Multiplication](Screenshots\multiplication.png)
+![Multiplication](https://github.com/Rashidsalim/CalculatorFXRMI/blob/master/Screenshots/multiplication.png)
 
 ### Result
-![Result](Screenshots\result.png)
+![Result](https://github.com/Rashidsalim/CalculatorFXRMI/blob/master/Screenshots/result.png)
