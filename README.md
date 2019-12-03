@@ -7,7 +7,8 @@
 - Rashid Salim - 114161
 
 
-
+### Simple Multiplication
 ![Multiplication](Screenshots\multiplication.png)
 
+### Result
 ![Result](Screenshots\result.png)
