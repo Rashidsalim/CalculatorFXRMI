@@ -8,7 +8,7 @@
 
 
 ### Simple Multiplication
-![Multiplication](https://github.com/Rashidsalim/CalculatorFXRMI/blob/master/Screenshots/multiplication.png)
+![Multiplication](https://github.com/Rashidsalim/CalculatorFXRMI/blob/master/Screenshots/calculator.png)
 
 ### Result
 ![Result](https://github.com/Rashidsalim/CalculatorFXRMI/blob/master/Screenshots/result.png)
@@ -16,7 +16,7 @@
 ### Database
 ![Database](https://github.com/Rashidsalim/CalculatorFXRMI/blob/master/Screenshots/database%20screenshot.png)
 
-- Database containing results from the Calcultor
+- Database containing results from the Calculator
 
 ### Database Table
 ![Database Tables](https://github.com/Rashidsalim/CalculatorFXRMI/blob/master/Screenshots/tables.png)
