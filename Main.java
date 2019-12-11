@@ -34,17 +34,32 @@ public class Main extends Application {
      */
 
     Connection conn = null;
-    String DB_URL = "jdbc:mysql://localhost:3306/Calculator";
-    String USER = "root";
-    String PASSWORD = "password";
+    static String DB_URL = "jdbc:mysql://localhost:3306/Calculator";
+    static String USER = "root";
+    static String PASSWORD = "password";
 
     /**
-     * The keyboard key values */
+     * The keyboard key values
+     */
+
+    @Override
+    public static void main(final String[] args) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            final Connection conn = DriverManager(DB_URL, USER, PASSWORD);
+          System.out.println("Connection Sucessfull");
+        } catch(Exception e) {
+            System.out.println("Error: Check your Connection String");
+            System.exit(1);
+        }
+    }
+    
+
     private static final String[][] key_values =
             {{"7", "8", "9", "/"}, {"4", "5", "6", "*"},
-                    {"1", "2", "3", "-"}, {"0", "c", "=", "+"}};
+             {"1", "2", "3", "-"}, {"0", "c", "=", "+"}};
 
-    private Button btn[][] = new Button[4][4];
+    private final Button btn[][] = new Button[4][4];
     /**
      * Buttons to all keys
      */
@@ -66,13 +81,13 @@ public class Main extends Application {
     Stack<String> stack_new = new Stack<>();
 
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         launch(args);
 
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(final Stage stage) {
 
         /** The outside layout
          * */
@@ -83,7 +98,7 @@ public class Main extends Application {
 
         /** The inside layout for keys or buttons
          * */
-        TilePane keypad = new TilePane(); // even it is called keypad, it is a layout
+        final TilePane keypad = new TilePane(); // even it is called keypad, it is a layout
         keypad.setVgap(7);
         keypad.setHgap(7);
         /**
@@ -125,7 +140,7 @@ public class Main extends Application {
                 btn[i][j].setOnAction(new EventHandler<ActionEvent>() {
 
                                           @Override
-                                          public void handle(ActionEvent event) {
+                                          public void handle(final ActionEvent event) {
                                               if (isEqualCalled) {
                                                   calculator_screen.clear();
                                                   isEqualCalled = false;
@@ -146,7 +161,7 @@ public class Main extends Application {
         btn[3][1].setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent arg0) {
+            public void handle(final ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 
                 calculator_screen.setText("");
@@ -159,7 +174,7 @@ public class Main extends Application {
         btn[3][2].setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent arg0) {
+            public void handle(final ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 // System.out.println("=============");
                 // System.out.println("Expression = "+ exp);
@@ -167,8 +182,8 @@ public class Main extends Application {
 
                 // --------------Pushing the elements to the stack-------------------
                 exp = exp + "\n";
-                char[] ch = exp.toCharArray();
-                int len = ch.length;
+                final char[] ch = exp.toCharArray();
+                final int len = ch.length;
                 int i = 0;
 
                 for (int j = 0; j < len; j++) {
@@ -196,7 +211,7 @@ public class Main extends Application {
                     }
                 }
                 temp = stack.pop();
-                int size = stack.size();
+                final int size = stack.size();
                 System.out.println("Size of stack = " + size);
 
                 // -----------Reversing the order of the stack-------------
@@ -226,7 +241,7 @@ public class Main extends Application {
                         flag = 2;
                         break;
                     } else {
-                        int op = checkString(temp);
+                        final int op = checkString(temp);
                         stack_new.pop();
 
                         temp = stack_new.peek();
@@ -276,12 +291,12 @@ public class Main extends Application {
 
             }
 
-            public int checkString(String temp) {
+            public int checkString(final String temp) {
                 // TODO Auto-generated method stub
 
                 if (temp.length() == 1) {
 
-                    char ch = temp.charAt(0);
+                    final char ch = temp.charAt(0);
                     if (ch == '+')
                         return 1;
                     else if (ch == '-')
@@ -310,7 +325,7 @@ public class Main extends Application {
         stage.setTitle("Calculator");
         stage.initStyle(StageStyle.UTILITY);
         stage.setResizable(false);
-        Scene scene = new Scene(layout);
+        final Scene scene = new Scene(layout);
         stage.setScene(scene);
         stage.show();
     }
