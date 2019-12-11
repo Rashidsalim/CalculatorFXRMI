@@ -1,11 +1,13 @@
-package sample;
 /**
- *<hi>Calculator</hi>
- *A simple/basic calculator implementing application.
- * <p>The calculator performs basic functionalities like addition, subtraction and multiplication.
- * The results generated from the arithmetic equations are then stored in a mysql database through a connector.</p>
+ * <h1>Calculator FX RMI</h1>
+ * <h2>A simple/basic calculator implementing application</h2>
+ * <p>
+ * The calculator performs basic functionalities like addition, subtraction and multiplication.
+ * The results generated from the arithmetic equations are then stored in a mysql database through a connector.
+ * <p>
  * @author Rashid Salim - 114161
  * @author William Gayo - 091921
+ * @version 1.0
  */
 
 import java.util.Stack;
@@ -27,10 +29,10 @@ import java.util.*;
 
 public class Main extends Application {
     /**
-     * @param conn is the first parameter
-     * @param DB_URL is the second parameter
-     * @param USER is the third parameter
-     * @param PASSWORD is the fourth parameter
+     * @param conn is the connection string
+     * @param DB_URL is the Database URL Endpointr
+     * @param USER is the username
+     * @param PASSWORD is the user's authentication credentials
      */
 
     Connection conn = null;
@@ -46,9 +48,9 @@ public class Main extends Application {
     public static void main(final String[] args) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            final Connection conn = DriverManager(DB_URL, USER, PASSWORD);
+            final Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
           System.out.println("Connection Sucessfull");
-        } catch(Exception e) {
+        } catch(final Exception e) {
             System.out.println("Error: Check your Connection String");
             System.exit(1);
         }
@@ -314,14 +316,12 @@ public class Main extends Application {
 
         });
 
-        /** Put the calculator screen and keypad into a VBox layout
-         * */
+        /** Put the calculator screen and keypad into a VBox layout */
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().addAll(calculator_screen, keypad);
         calculator_screen.prefWidthProperty().bind(keypad.widthProperty());
 
-        /** Display Window
-         * */
+        
         stage.setTitle("Calculator");
         stage.initStyle(StageStyle.UTILITY);
         stage.setResizable(false);
@@ -329,7 +329,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    /** Static main method */
     public void handle() {
         launch();
     }
