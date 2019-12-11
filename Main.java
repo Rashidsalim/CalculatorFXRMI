@@ -1,14 +1,15 @@
 /**
- * <h1>Calculator FX RMI</h1>
- * <h2>A simple/basic calculator implementing application</h2>
- * <p>
- * The calculator performs basic functionalities like addition, subtraction and multiplication.
- * The results generated from the arithmetic equations are then stored in a mysql database through a connector.
- * <p>
- * @author Rashid Salim - 114161
- * @author William Gayo - 091921
- * @version 1.0
- */
+* <h1>Calculator FX RMI</h1>
+* <h2>A simple/basic calculator implementing application</h2>
+* <p>
+* The calculator performs basic functionalities like addition, subtraction and multiplication.
+* The results generated from the arithmetic equations are then stored in a mysql database through a connector.
+* <p>
+* @author Rashid Salim - 114161
+* @author William Gayo - 091921
+* @version 1.0
+*/
+
 
 import java.util.Stack;
 
@@ -45,7 +46,7 @@ public class Main extends Application {
      */
 
     @Override
-    public static void main(final String[] args) {
+    public static void Main(final String[] args) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             final Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
@@ -164,6 +165,7 @@ public class Main extends Application {
 
             @Override
             public void handle(final ActionEvent arg0) {
+
                 // TODO Auto-generated method stub
                 
                 calculator_screen.setText("");
@@ -193,7 +195,7 @@ public class Main extends Application {
 
                         i = j;
                         sample = "0";
-                        while (ch[i] >= '0' && ch[i] <= '9' && i < len)// To check if there is a more than 1 digit number
+                        while (ch[i] >= '0' && ch[i] <= '9' && i < len) // To check if there is a more than 1 digit number
 
                         {
                             if (ch[i] >= '0' && ch[i] <= '9') {
